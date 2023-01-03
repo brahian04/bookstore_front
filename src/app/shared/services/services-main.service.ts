@@ -2,17 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment'
 import { Observable } from 'rxjs';
-import { Product } from '../models/products.model'
+import { Book } from '../model/book.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceMainService {
 
-  constructor(public http:HttpClient) { }
+  private url:string=environment.ApiUrl;
+  constructor(private httpClient:HttpClient) { }
 
-  getProducts():Observable<Product>{
-    return this.http.get<Product>(this.url)
+// este método sirve para obtener los libros
+  getBooks():Observable<Book[]>{
+    return this.httpClient.get<Book[]>(`${this.url}`)
   }
 
 }

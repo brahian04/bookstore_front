@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './shared/services/auth-interceptor.service';
+import { InventoryComponent } from './screens/inventory/inventory.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    InventoryComponent
   ],
   imports: [
     BrowserModule,
