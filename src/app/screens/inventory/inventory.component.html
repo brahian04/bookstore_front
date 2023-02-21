@@ -1,7 +1,4 @@
-<h2>Book List</h2>
-<p *ngFor= "let book in books">
-    {{book.bookName}};
-</p>
+<h2 style="text-align: center">Book List</h2>
 <div class="container">
     <table class="table table-striped">
         <thead class="table-dark">
@@ -10,6 +7,7 @@
                 <th>Isbn</th>
                 <th>Author</th>
                 <th>Languaje</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +16,18 @@
                 <td>{{book.isbn}}</td>
                 <td>{{book.author}}</td>
                 <td>{{book.languaje}}</td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Options
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><button class="dropdown-item" (click)= "bookDetail(book.id)">Details</button></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><button class="dropdown-item" (click)= "deleteBook(book.id)">Delete</button></li>
+                        </ul>
+                      </div>
+                </td>
             </tr>
         </tbody>
     </table>

@@ -1,7 +1,7 @@
 export class Book { 
   id: number;
   bookName: string;
-  isbn: number;
+  isbn: string;
   author: string;
   languaje: string;
 }

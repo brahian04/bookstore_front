@@ -16,5 +16,24 @@ export class ServiceMainService {
   getBooks():Observable<Book[]>{
     return this.httpClient.get<Book[]>(`${this.url}`)
   }
+  
+  // este método sirve para obtener un libro por id
+  getBookById(id:number):Observable<Book>{
+    return this.httpClient.get<Book>(`${this.url}/${id}`);
+  }
+  
+  // este método sirve para registrar libros
+  registerBook(book:Book):Observable<Object>{
+    return this.httpClient.post(`${this.url}`,book);
+  }
+
+  // este método sirve para actualizar información de los libros
+  updateBook(id:number,book:Book):Observable<Object>{
+    return this.httpClient.put(`${this.url}/${id}`,book);
+  }
+
+  deleteBook(id:number):Observable<Object>{
+    return this.httpClient.delete(`${this.url}/${id}`);
+  }
 
 }

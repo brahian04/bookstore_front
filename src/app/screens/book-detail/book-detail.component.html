@@ -1,0 +1,140 @@
+<h2>Book details</h2>
+<div>
+    <label><b>ID: </b> {{book.id}}</label>
+</div>
+<div>
+    <label><b>Name: </b> {{book.bookName}}</label>
+</div>
+<div>
+    <label><b>Isbn: </b> {{book.isbn}}</label>
+</div>
+<div>
+    <label><b>Author: </b> {{book.author}}</label>
+</div>
+<div>
+    <label><b>Languaje: </b> {{book.languaje}}</label>
+</div>
+<div class="btn-group" role="group" aria-label="Basic outlined example" style="margin-top: 10px">
+    <button type="button" class="btn btn-outline-dark" (click)= "goBookList()">Back</button>
+    <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Edit</button>
+</div>
+  
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100" >Edit Book</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)= "onSubmit()" #bookForm="ngForm" id="bookForm">
+                    <div class="form_group">
+                        <label>Name: </label>
+                        <input type="text"
+                        class="form-control"
+                        id="name"
+                        [(ngModel)]= "book.bookName"
+                        name = "name"
+                        required
+                        placeholder="type name "
+                        #name = "ngModel">
+                    </div>
+
+                    <div class="form_group">
+                        <label>Isbn: </label>
+                        <input type="text"
+                        class="form-control"
+                        id="isbn"
+                        [(ngModel)]= "book.isbn"
+                        name = "isbn"
+                        required
+                        placeholder="type isbn ">
+                    </div>
+
+                    <div class="form_group">
+                        <label>Author: </label>
+                        <input type="text"
+                        class="form-control"
+                        id="author"
+                        [(ngModel)]= "book.author"
+                        name = "author"
+                        required
+                        placeholder="type author ">
+                    </div>
+
+                    <div class="form_group">
+                        <label>Languaje: </label>
+                        <input type="text"
+                        class="form-control"
+                        id="languaje"
+                        [(ngModel)]= "book.languaje"
+                        name = "languaje"
+                        required
+                        placeholder="type languaje ">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" [disabled]= "!bookForm.form.valid" (click)= "onSubmit()" data-bs-dismiss="modal">Save</button>
+                <button class="btn btn-secondary" data-bs-dismiss="modal" (click)= "discardChanges()">Cancel</button>
+            </div>
+      </div>
+    </div>
+</div>
+  
+<!-- <div>
+    <label><b>Creation date: </b> {{customer.creationDate}}</label>
+</div>
+<div>
+    <label><b>Creation user: </b> {{customer.creationUser}}</label>
+</div>
+<div>
+    <label><b>Modification date: </b> {{customer.modificationDate}}</label>
+</div> -->
+<!-- <h2>Edit Book</h2>
+<form (ngSubmit)= "onSubmit()" #bookForm="ngForm">
+    <div class="form_group">
+        <label>Name: </label>
+        <input type="text"
+        class="form-control"
+        id="name"
+        [(ngModel)]= "book.bookName"
+        name = "name"
+        placeholder="type name "
+        #name = "ngModel">
+    </div>
+
+    <div class="form_group">
+        <label>Isbn: </label>
+        <input type="text"
+        class="form-control"
+        id="isbn"
+        [(ngModel)]= "book.isbn"
+        name = "isbn"
+        placeholder="type isbn ">
+    </div>
+
+    <div class="form_group">
+        <label>Author: </label>
+        <input type="text"
+        class="form-control"
+        id="author"
+        [(ngModel)]= "book.author"
+        name = "author"
+        placeholder="type author ">
+    </div>
+
+    <div class="form_group">
+        <label>Languaje: </label>
+        <input type="text"
+        class="form-control"
+        id="languaje"
+        [(ngModel)]= "book.languaje"
+        name = "languaje"
+        placeholder="type languaje ">
+    </div>
+
+    <button class="btn btn-success" [disabled]="!bookForm.form.valid">Save</button>
+
+</form> -->
